@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IT_Kariera_Exam.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+<table class="table" id="Users">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $('#employeesTable').DataTable({
+            "lengthMenu": [
+                [10, 25, 50],
+                [10, 25, 50]
+            ]
+        });
+    </script>
+}
+
+
